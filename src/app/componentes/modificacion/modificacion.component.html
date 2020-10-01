@@ -1,0 +1,23 @@
+<h2>Modificar</h2>
+<p>Modificar Persona</p>
+<div class="album py-1 bg-light">
+    <div class="row my-2">
+        <img [src]="persona.foto" alt="" class="mx-auto d-block">
+    </div>
+    <div class="row">
+        <label class="label-control floating col-12">Nombre:</label>
+        <input type="text" class="form-control" [(ngModel)]='persona.nombre' [placeholder]='persona.nombre'>
+    </div>
+    <div class="row">
+        <label class="col-12 label-control">Apellido:</label>
+        <input type="text" class="form-control" [(ngModel)]='persona.apellido' [placeholder]='persona.apellido'>
+    </div>
+    <div class="row">
+        <label class="label-control col-12">Email:</label>
+        <input type="text" class="form-control" [(ngModel)]='persona.email' [placeholder]='persona.email'>
+    </div>
+</div>
+<div class="row">
+    <a class="btn btn-success mx-2 col-4" role="button" (click)='onModificar()'>Modificar</a>
+    <button class="btn btn-danger mx2 col-4" (click)='onCancelar()'>Cancelar</button>
+</div>

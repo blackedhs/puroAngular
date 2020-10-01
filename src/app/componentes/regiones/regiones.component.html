@@ -1,0 +1,12 @@
+<section class="jumbotron text-center">
+    <div class="container">
+        <h1>Region: {{region}}</h1>
+        <p class="lead text-muted">https://restcountries.eu/rest/v2/region/{{region}}</p>
+        <p>
+            <button (click)="onClick('Europe')" class="btn btn-primary my-2">Region Europa</button>
+            <button (click)="onClick('Asia')" class="btn btn-primary my-2">Region Asia</button>
+            <button (click)="onClick('Americas')" class="btn btn-primary my-2">Region America</button>
+            <button (click)="onClick('Africa')" class="btn btn-secondary my-2">Region Africa</button>
+        </p>
+    </div>
+</section>
