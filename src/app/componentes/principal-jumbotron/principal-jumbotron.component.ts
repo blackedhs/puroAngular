@@ -25,12 +25,6 @@ export class PrincipalJumbotronComponent implements OnInit {
     // this.cagarFire();
    
 }
-cagarFire(): any {
-  this.api.db.collection('personas').get()
-    .subscribe(datos => datos
-      .forEach(doc => console.log(doc)),
-      () => console.log('error firebase consumir'));
-}
 cargaFireDb(): any{
   this.api.dbGet('personas').snapshotChanges().subscribe(item => {
     this.personas = [];
