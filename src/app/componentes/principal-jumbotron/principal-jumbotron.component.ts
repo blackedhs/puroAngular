@@ -23,42 +23,42 @@ export class PrincipalJumbotronComponent implements OnInit {
     this.cargaFireDb();
     // this.guardarMockyfire();
     // this.cagarFire();
-   
-}
-cargaFireDb(): any{
-  this.api.dbGet('personas').snapshotChanges().subscribe(item => {
-    this.personas = [];
-    item.forEach(element => {
-      const x = element.payload.toJSON();
-      x["$key"] = element.key;
-      this.personas.push(x as Persona);
-    });
-  }, error => console.log(error));
-}
-async guardarMockyfire(): Promise < any > {
-  await this.api.consumirMock().subscribe(datos => this.personas = datos,
-    () => console.log('error en consumir mock'));
-  setTimeout(() => {
-    this.personas.forEach( dato =>
-      this.api.dbInsert(dato));
-  }, 2000);
-}
-onDetalle(persona: Persona): any {
-  this.modificarFlag = false;
-  this.borrarFlag = false;
-  this.detalleFlag = true;
-  this.personaDetalle = persona;
-}
-onModificacion(persona: Persona): any {
-  this.borrarFlag = false;
-  this.detalleFlag = false;
-  this.modificarFlag = true;
-  this.personaModificar = persona;
-}
-onBorrar(persona: Persona): any {
-  this.detalleFlag = false;
-  this.modificarFlag = false;
-  this.borrarFlag = true;
-  this.personaBorrar = persona;
-}
+
+  }
+  cargaFireDb(): any {
+    this.api.dbGet('personas').snapshotChanges().subscribe(item => {
+      this.personas = [];
+      item.forEach(element => {
+        const x = element.payload.toJSON();
+        x["$key"] = element.key;
+        this.personas.push(x as Persona);
+      });
+    }, error => console.log(error));
+  }
+  async guardarMockyfire(): Promise<any> {
+    await this.api.consumirMock().subscribe(datos => this.personas = datos,
+      () => console.log('error en consumir mock'));
+    setTimeout(() => {
+      this.personas.forEach(dato =>
+        this.api.dbInsert(dato));
+    }, 2000);
+  }
+  onDetalle(persona: Persona): any {
+    this.modificarFlag = false;
+    this.borrarFlag = false;
+    this.detalleFlag = true;
+    this.personaDetalle = persona;
+  }
+  onModificacion(persona: Persona): any {
+    this.borrarFlag = false;
+    this.detalleFlag = false;
+    this.modificarFlag = true;
+    this.personaModificar = persona;
+  }
+  onBorrar(persona: Persona): any {
+    this.detalleFlag = false;
+    this.modificarFlag = false;
+    this.borrarFlag = true;
+    this.personaBorrar = persona;
+  }
 }
